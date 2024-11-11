@@ -34,7 +34,7 @@ class PDF(FPDF):
         #Numero da pagina
         self.cell(0,10,f'Page {self.page_no()}/{{nb}}',align='C')
 
-    def titulo_do_capitulo(self,numeroCapitulo,tituloCapitulo,link):
+    def titulo_do_capitulo(self,ch_num,ch_title,link):
         #Link  location
         self.set_link(link)
 
@@ -43,8 +43,8 @@ class PDF(FPDF):
         #Cor do fundo
         self.set_fill_color(200,220,255)
         #Titulo do capitulo
-        titulo_do_capitulo = f'Capítulo {numeroCapitulo} : {tituloCapitulo}'
-        self.cell(0,5,titulo_do_capitulo, fill=1)
+        chapter_title = f'Capítulo {ch_num} : {ch_title}'
+        self.cell(0,5,chapter_title, fill=1)
         self.ln(10)
 
     def conteudo(self,name):
@@ -90,8 +90,8 @@ pdf.image('backGround20mil.png', x=-0.5,w=pdf.w +1)
 #Link anexo
 pdf.cell(0,10,'Fonte do texto', link=website)
 pdf.ln()
-#pdf.cell(0,10,'Capítulo 1 ', link=cap1_link)
-#pdf.ln()
+pdf.cell(0,10,'Capítulo 1 ', link=cap1_link)
+pdf.ln()
 #pdf.cell(0,10,'Capítulo 2 ', link=cap2_link)
 
 
